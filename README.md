@@ -12,7 +12,7 @@
 #כדי להרים את מסד הנתונים במהירות, בסביבה מבודדת ועם הגדרות קבועות מראש, ניתן להשתמש בפקודת ה-Docker הבאה:
 
 ```bash
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=mydb -p 3306:3306 -v mysql_data:/var/lib/mysql -d mysql:latest
+docker run --name my-mysql -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=library_db -p 3306:3306 -v mysql_data:/var/lib/mysql -d mysql:latest
 ```
 
 ## 3. מבנה התקיות
