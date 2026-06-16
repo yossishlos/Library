@@ -18,7 +18,7 @@ class DB:
         # self.cursor.execute("use library_db")
 
     def create_table(self):
-        self.cursor.execute("""CREATE TABLE books(
+        self.cursor.execute("""CREATE TABLE if not exists books(
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(50) NOT NULL,
     author VARCHAR(50) NOT NULL,
@@ -27,7 +27,7 @@ class DB:
     borrowed_by_member_id INT DEFAULT NULL 
     ); """)
         
-        self.cursor.execute("""CREATE TABLE members(
+        self.cursor.execute("""CREATE TABLE if not exists members(
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(50) UNIQUE NOT NULL,
@@ -36,5 +36,6 @@ class DB:
     ); """)
 
     def disconnect(self):
+
         self.connection.close()
         self.cursor.close()
